@@ -1,221 +1,80 @@
-<!-- SUBJECT: [[SUBJECT]] -->
-<!DOCTYPE html>
+<!-- template:layout_v1; updated: 2025-08-21 -->
+<!doctype html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[[SUBJECT]]</title>
-    <style>
-        /* Reset CSS */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape */
-            -ms-text-size-adjust: 100%;    /* Prevent font scaling in landscape */
-            width: 100% !important;
-            min-width: 100%;
-        }
-        /* Email client specific styles */
-        div[style*="margin: 16px 0"] {
-            margin: 0 !important;
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* Main container */
-        .newsletter-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: #ffffff;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            border-collapse: collapse; /* Ensure proper rendering in Outlook */
-        }
-        /* Header section */
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Visually appealing gradient */
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-        }
-        .header img {
-            max-width: 180px; /* Optimized image size */
-            height: auto;
-            display: block;
-            margin: 0 auto 10px; /* Centered logo with space below */
-        }
-        .header h1 {
-            font-size: 28px;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-        .header p {
-            font-size: 18px;
-            line-height: 1.5;
-        }
-        /* Content section */
-        .content {
-            padding: 40px 30px;
-        }
-        .article-section {
-            margin-bottom: 35px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid #eee; /* Visual hierarchy */
-        }
-        .article-section:last-child {
-            border-bottom: none; /* No border for the last article */
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        .article-section h2 {
-            color: #667eea;
-            font-size: 22px; /* Readable font size */
-            margin-bottom: 15px;
-        }
-        .article-section p {
-            font-size: 16px; /* Readable font size, 16px or larger for mobile */
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        .cta-button {
-            display: inline-block;
-            background: #667eea; /* Clear CTA button with high contrast */
-            color: white;
-            padding: 14px 28px;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: bold;
-            transition: all 0.3s ease; /* Mobile-first micro-animation */
-        }
-        .cta-button:hover {
-            background: #5a67d8;
-            transform: translateY(-2px);
-        }
-        /* Footer section */
-        .footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 25px;
-            font-size: 14px; /* Informative footer area */
-        }
-        .social-links {
-            margin: 20px 0;
-        }
-        .social-links a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
-        }
-        .footer p a {
-            color: #ccc; /* Lighter color for footer links */
-        }
-
-        /* Mobile responsiveness */
-        @media screen and (max-width: 600px) {
-            .newsletter-container {
-                width: 100% !important;
-                margin: 0 !important;
-                box-shadow: none; /* Remove shadow on small screens for cleaner look */
-            }
-            .content {
-                padding: 25px 20px !important;
-            }
-            .header h1 {
-                font-size: 24px !important;
-            }
-            .header p {
-                font-size: 16px !important;
-            }
-            .article-section h2 {
-                font-size: 20px !important;
-            }
-            .article-section p {
-                font-size: 15px !important;
-            }
-            .cta-button {
-                padding: 12px 24px;
-                font-size: 14px;
-            }
-            .social-links a {
-                font-size: 16px;
-                margin: 0 10px;
-            }
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[[SUBJECT]]</title>
+<style>
+/* 
+  모바일 퍼스트 최소 스타일: 클래스 3종만 사용해 폭/정렬/스택 제어.
+  외부 CSS/JS 없음. 섹션의 선/보더/카드 스타일은 섹션 파셜이 담당.
+*/
+@media (max-width:600px){
+  .container{width:100%!important}
+  .stack{display:block!important;width:100%!important}
+  .center{text-align:center!important}
+}
+table,td{border-collapse:collapse}
+img{border:0;display:block}
+a{text-decoration:none;color:inherit}
+a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important}
+</style>
 </head>
-<body>
-    <!-- PREHEADER TEXT: [[PREHEADER]] -->
-    <!-- Hidden preheader text for email clients that support it -->
-    <div style="display:none;font-size:1px;color:#ffffff;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide:all;">[[PREHEADER]]</div>
+<body style="margin:0;padding:0;background:#f2f6fa;">
+  <!-- 
+    숨겨진 프리헤더: 이메일 리스트에서 제목 옆에 노출되는 문구.
+    스펙의 클리핑 방지 공백·제로폭 조합을 포함.
+  -->
+  <div style="display:none;max-height:0;overflow:hidden;opacity:0;">
+    [[PREHEADER]]&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  </div>
 
-    <div class="newsletter-container">
-        <div class="header">
-            <!-- LOGO: [[LOGO_URL]] (absolute path: https) -->
-            <a href="[[HOME_URL]]" target="_blank" style="text-decoration: none; display: block; margin-bottom: 10px;">
-                <img src="[[LOGO_URL]]" alt="Company Logo" style="max-width: 180px; height: auto; display: block; margin: 0 auto;">
-            </a>
-            <!-- SUBJECT / NEWSLETTER TITLE: [[SUBJECT]] -->
-            <h1>🚀 주간 인사이트 [[ISSUE_ID]]</h1>
-            <p>2025년 최신 트렌드와 실무 노하우를 전해드립니다</p>
-        </div>
+  <!-- 배경 래퍼 -->
+  <table role="presentation" width="100%" style="background:#f2f6fa;">
+    <tr>
+      <td align="center" style="padding:24px 12px;">
+        <!-- 600px 컨테이너: 모든 주요 콘텐츠는 이 안에서만 렌더링 -->
+        <table class="container" role="presentation" width="600" style="width:600px;max-width:100%;background:#ffffff;border-radius:12px;overflow:hidden;">
+          
+          <!-- 헤더: 로고 + 이슈ID. 배경 대비 확보(AA) -->
+          <tr>
+            <td style="padding:16px 20px;background:#1f2a36;color:#a9b6c2;">
+              <table role="presentation" width="100%">
+                <tr>
+                  <td class="stack" valign="middle" style="padding:4px 0;">
+                    <a href="[[HOME_URL]]" target="_blank" rel="noopener">
+                      <img src="[[LOGO_URL]]" alt="Diving Weekly 로고" width="120" style="display:block;width:120px;height:auto;">
+                    </a>
+                  </td>
+                  <td class="stack center" valign="middle" style="padding:4px 0;font:14px/1.4 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
+                    <!-- 이슈 식별자: 자동 치환 -->
+                    [[ISSUE_ID]]
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
 
-        <div class="content">
-            <!-- Mandatory Section Placeholders (leave as empty lines for dynamic content insertion) -->
-            <!-- [[TRAVEL]] -->
+          <!-- 섹션 슬롯: 실제 카드/보더/타이포는 섹션 파셜이 전담 -->
+          [[TRAVEL]]
+          [[FUNFACT]]
+          [[EQUIPMENT]]
+          [[DIVINGSKILL]]
+          [[ENVIRONMENT]]
 
-            <!-- [[FUNFACT]] -->
-
-            <!-- [[EQUIPMENT]] -->
-
-            <!-- [[DIVINGSKILL]] -->
-
-            <!-- [[ENVIRONMENT]] -->
-
-            <!-- Example Article Section (This content typically would be dynamically inserted via section partials) -->
-            <!-- This structure supports Hyper-Personalization with AI-Driven Content by allowing content to be replaced by customized blocks [2, 5] -->
-            <div class="article-section">
-                <h2>💡 이번 주 핵심 트렌드</h2>
-                <p>하이퍼 개인화가 2025년 이메일 마케팅의 게임 체인저가 되고 있습니다. AI와 데이터 분석을 활용한 맞춤형 콘텐츠 전략을 지금 시작하세요.</p>
-                <a href="https://example.com/trends" class="cta-button" target="_blank">전략 가이드 보기</a>
-            </div>
-
-            <div class="article-section">
-                <h2>📊 성과 분석 리포트</h2>
-                <p>반응형 HTML 템플릿을 사용한 캠페인의 오픈율이 평균 35% 증가했습니다. 모바일 최적화의 중요성이 다시 한번 입증되었습니다.</p>
-                <a href="https://example.com/report" class="cta-button" target="_blank">상세 리포트 확인</a>
-            </div>
-
-            <div class="article-section">
-                <h2>🎯 실무 팁 & 도구</h2>
-                <p>이번 주 추천하는 무료 도구는 Stripo와 BEE입니다. 1,500개 이상의 전문 템플릿으로 누구나 쉽게 멋진 뉴스레터를 만들 수 있습니다.</p>
-                <a href="https://example.com/tools" class="cta-button" target="_blank">도구 사용법 보기</a>
-            </div>
-        </div>
-
-        <div class="footer">
-            <div class="social-links">
-                <!-- Ensure all URLs are absolute (https) -->
-                <a href="https://facebook.com/yourcompany" target="_blank">📘 Facebook</a>
-                <a href="https://twitter.com/yourcompany" target="_blank">🐦 Twitter</a>
-                <a href="https://instagram.com/yourcompany" target="_blank">📷 Instagram</a>
-                <a href="https://linkedin.com/company/yourcompany" target="_blank">💼 LinkedIn</a>
-            </div>
-            <p>© 2025 Your Company. All rights reserved.</p>
-            <p>
-                <!-- Unsubscribe and Preferences links for Data Privacy & Trust-Building Design [6, 7] -->
-                <a href="[[UNSUBSCRIBE_URL]]" style="color: #ccc;" target="_blank">구독 취소</a> |
-                <a href="[[PREF_URL]]" style="color: #ccc;" target="_blank">개인정보처리방침</a>
-            </p>
-        </div>
-    </div>
+          <!-- 푸터: 구독 정보/링크. 링크 대비(AA) 색상 지정 -->
+          <tr>
+            <td style="padding:16px 20px;background:#f7fbff;color:#6a7b8c;font:12px/1.6 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
+              You’re receiving this because you subscribed to <strong>Diving Weekly</strong>.<br>
+              <a href="[[UNSUBSCRIBE_URL]]" target="_blank" style="color:#1e63cc;">Unsubscribe</a>
+              &nbsp;·&nbsp;
+              <a href="[[PREF_URL]]" target="_blank" style="color:#1e63cc;">Update preferences</a>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
 </body>
 </html>
