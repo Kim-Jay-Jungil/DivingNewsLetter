@@ -1,0 +1,42 @@
+<!-- template:section_v1; updated: 2025-08-21 -->
+<tr>
+  <!-- 
+    섹션 카드 전체 래퍼: 배경 대비와 하단 구분선을 섹션이 자체 관리.
+    레이아웃은 이 블록을 그대로 삽입만 함.
+  -->
+  <td style="padding:0 20px 24px;border-bottom:1px solid #e6edf3;background:#3a4350;color:#ffffff;">
+    <!-- 카테고리 라벨: 대문자·자간 소폭 증가 -->
+    <div style="font:12px/1.4 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#9fb4c8;text-transform:uppercase;padding-top:14px;">
+      [[SECTION_LABEL]]
+    </div>
+
+    <!-- 본문 2열: 텍스트 60% / 이미지 40%, 모바일 스택 -->
+    <table role="presentation" width="100%">
+      <tr>
+        <td class="stack" width="60%" valign="top" style="padding:10px 12px 0 0;">
+          <h3 style="margin:6px 0 8px;font:700 20px/1.35 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#ffffff;">
+            [[TITLE]]
+          </h3>
+          <p style="margin:0 0 10px;font:14px/1.7 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#dbe4ec;">
+            [[SUMMARY]]
+          </p>
+          <!-- 링크 패턴: 스펙 고정. 색상 대비(AA) 확보 -->
+          <div style="font:12px/1.6 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#b7c4cf;">
+            <a href="[[URL]][[SEP]][[UTM]]&amp;utm_content=[[UTM_CONTENT]]" target="_blank" style="color:#6ec2ff;">Learn more →</a>
+            &nbsp;·&nbsp;AUTHOR: [[AUTHOR]] · [[DATE]]
+          </div>
+        </td>
+
+        <td class="stack" width="40%" valign="top" style="padding:10px 0 0 12px;">
+          <a href="[[URL]][[SEP]][[UTM]]&amp;utm_content=[[UTM_CONTENT]]" target="_blank">
+            <img 
+              src="[[IMAGE]]" 
+              alt="[[TITLE]]"
+              width="220"
+              style="display:block;width:100%;max-width:220px;height:auto;border-radius:8px;">
+          </a>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
