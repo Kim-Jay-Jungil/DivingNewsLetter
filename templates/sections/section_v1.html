@@ -1,53 +1,46 @@
-<!-- template:section_v2; updated: 2025-08-22 -->
+<!-- template:section_travel_hero_v1; updated: 2025-08-22 -->
 <tr>
-  <td style="padding:0 20px 28px;background:#0f3c4c;">
-    <!-- 카드: 흰 바탕, 큰 라운드, 살짝의 내부 여백 -->
-    <table role="presentation" width="100%" style="background:#ffffff;border-radius:16px;">
+  <td style="padding:0 0 28px;background:#0f3c4c;">
+    <!-- 히어로 컨테이너: 둥근 모서리로 이미지 클리핑 -->
+    <table role="presentation" width="100%" style="border-radius:18px;overflow:hidden;background:#000000;">
       <tr>
-        <td style="padding:16px 16px 14px;border-bottom:1px solid #edf2f7;">
-          <!-- 카테고리 라벨(필드명만 바뀌어도 무드가 살아남) -->
-          <span style="display:inline-block;padding:7px 10px;border-radius:9999px;background:#e7faf6;color:#0e7f74;font:700 11px/1 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;letter-spacing:.02em;text-transform:uppercase;">
-            [[SECTION_LABEL]]
-          </span>
-        </td>
-      </tr>
-
-      <tr>
-        <!-- 좌: 텍스트 60% / 우: 이미지 40% (모바일에선 스택) -->
-        <td style="padding:8px 16px 16px;">
-          <table role="presentation" width="100%">
-            <tr>
-              <td class="stack" width="60%" valign="top" style="padding:8px 12px 0 0;">
-                <h3 style="margin:0 0 8px;font:800 22px/1.3 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#0f1f2e;">
-                  [[TITLE]]
-                </h3>
-                <p style="margin:0 0 14px;font:14px/1.75 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#374b5c;">
-                  [[SUMMARY]]
-                </p>
-
-                <!-- CTA: 링크 패턴 고정 + 버튼형(AA 대비) -->
-                <div style="margin:0 0 10px;">
-                  <a href="[[URL]][[SEP]][[UTM]]&amp;utm_content=[[UTM_CONTENT]]" target="_blank" rel="noopener"
-                     style="display:inline-block;padding:10px 14px;border-radius:12px;background:#1e63cc;color:#ffffff;font:700 13px/1 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
-                    Learn more →
-                  </a>
-                </div>
-
-                <div style="font:12px/1.6 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#64758a;">
-                  AUTHOR: [[AUTHOR]] · [[DATE]]
-                </div>
-              </td>
-
-              <td class="stack" width="40%" valign="top" style="padding:8px 0 0 12px;">
-                <a href="[[URL]][[SEP]][[UTM]]&amp;utm_content=[[UTM_CONTENT]]" target="_blank" rel="noopener">
-                  <img src="[[IMAGE]]" alt="[[TITLE]]" width="220"
-                       style="display:block;width:100%;max-width:220px;height:auto;border-radius:14px;">
-                </a>
-              </td>
-            </tr>
-          </table>
+        <td>
+          <!-- 큰 히어로 이미지: 절대 URL, width 속성 + 인라인 스타일 병행 -->
+          <a href="[[URL]][[SEP]][[UTM]]&amp;utm_content=[[UTM_CONTENT]]" target="_blank" rel="noopener">
+            <img src="[[IMAGE]]" alt="[[TITLE]]" width="600"
+                 style="display:block;width:100%;max-width:600px;height:auto;border:0;">
+          </a>
         </td>
       </tr>
     </table>
+
+    <!-- 오버랩 카드: 이미지 위로 겹치도록 음수 마진. 미지원 클라이언트에서는 자연스럽게 '이미지 아래'로 폴백 -->
+    <div style="margin:-64px 20px 0 20px;background:#ffffff;border-radius:16px;padding:16px 16px 14px;">
+      <!-- 카테고리 라벨 -->
+      <span style="display:inline-block;padding:7px 10px;border-radius:9999px;background:#e7faf6;color:#0e7f74;
+                   font:700 11px/1 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;letter-spacing:.02em;text-transform:uppercase;">
+        [[SECTION_LABEL]]
+      </span>
+
+      <!-- 타이틀/요약 -->
+      <h2 style="margin:10px 0 8px;font:800 26px/1.25 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#0f1f2e;">
+        [[TITLE]]
+      </h2>
+      <p style="margin:0 0 14px;font:14px/1.7 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#374b5c;">
+        [[SUMMARY]]
+      </p>
+
+      <!-- CTA: 링크 패턴 고정(UTM 포함) -->
+      <a href="[[URL]][[SEP]][[UTM]]&amp;utm_content=[[UTM_CONTENT]]" target="_blank" rel="noopener"
+         style="display:inline-block;padding:10px 14px;border-radius:12px;background:#1e63cc;color:#ffffff;
+                font:700 13px/1 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
+        여행 정보 보기 →
+      </a>
+
+      <!-- 메타 -->
+      <div style="margin-top:10px;font:12px/1.6 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#64758a;">
+        AUTHOR: [[AUTHOR]] · [[DATE]]
+      </div>
+    </div>
   </td>
 </tr>
