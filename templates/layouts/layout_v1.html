@@ -1,4 +1,4 @@
-<!-- template:layout_v1; updated: 2025-08-21 -->
+<!-- template:layout_v2; updated: 2025-08-22 -->
 <!doctype html>
 <html lang="ko">
 <head>
@@ -6,14 +6,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>[[SUBJECT]]</title>
 <style>
-/* 
-  모바일 퍼스트 최소 스타일: 클래스 3종만 사용해 폭/정렬/스택 제어.
-  외부 CSS/JS 없음. 섹션의 선/보더/카드 스타일은 섹션 파셜이 담당.
-*/
 @media (max-width:600px){
   .container{width:100%!important}
   .stack{display:block!important;width:100%!important}
   .center{text-align:center!important}
+  .capsule{border-radius:24px!important}
 }
 table,td{border-collapse:collapse}
 img{border:0;display:block}
@@ -21,35 +18,36 @@ a{text-decoration:none;color:inherit}
 a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important}
 </style>
 </head>
-<body style="margin:0;padding:0;background:#f2f6fa;">
-  <!-- 
-    숨겨진 프리헤더: 이메일 리스트에서 제목 옆에 노출되는 문구.
-    스펙의 클리핑 방지 공백·제로폭 조합을 포함.
-  -->
+<body style="margin:0;padding:0;background:#e9f2f7;">
   <div style="display:none;max-height:0;overflow:hidden;opacity:0;">
     [[PREHEADER]]&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
   </div>
 
-  <!-- 배경 래퍼 -->
-  <table role="presentation" width="100%" style="background:#f2f6fa;">
+  <table role="presentation" width="100%" style="background:#e9f2f7;">
     <tr>
       <td align="center" style="padding:24px 12px;">
-        <!-- 600px 컨테이너: 모든 주요 콘텐츠는 이 안에서만 렌더링 -->
-        <table class="container" role="presentation" width="600" style="width:600px;max-width:100%;background:#ffffff;border-radius:12px;overflow:hidden;">
+        <table class="container" role="presentation" width="600" style="width:600px;max-width:100%;background:#ffffff;border-radius:20px;overflow:hidden;">
           
-          <!-- 헤더: 로고 + 이슈ID. 배경 대비 확보(AA) -->
+          <!-- 헤더 : 캡슐형 상단 배너 + 이슈 버블 -->
           <tr>
-            <td style="padding:16px 20px;background:#1f2a36;color:#a9b6c2;">
+            <td style="padding:0 20px 16px;background:#0f3c4c;">
               <table role="presentation" width="100%">
                 <tr>
-                  <td class="stack" valign="middle" style="padding:4px 0;">
-                    <a href="[[HOME_URL]]" target="_blank" rel="noopener">
-                      <img src="[[LOGO_URL]]" alt="Diving Weekly 로고" width="120" style="display:block;width:120px;height:auto;">
-                    </a>
-                  </td>
-                  <td class="stack center" valign="middle" style="padding:4px 0;font:14px/1.4 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
-                    <!-- 이슈 식별자: 자동 치환 -->
-                    [[ISSUE_ID]]
+                  <td style="padding-top:16px;">
+                    <table role="presentation" width="100%" class="capsule" style="width:100%;background:#15a2b8;border-radius:18px;">
+                      <tr>
+                        <td class="stack" valign="middle" style="padding:14px 16px;">
+                          <a href="[[HOME_URL]]" target="_blank" rel="noopener">
+                            <img src="[[LOGO_URL]]" alt="Diving Weekly 로고" width="124" style="display:block;width:124px;height:auto;">
+                          </a>
+                        </td>
+                        <td class="stack center" valign="middle" style="padding:10px 12px;">
+                          <span style="display:inline-block;min-width:84px;padding:10px 14px;border-radius:9999px;background:#ffffff;color:#0f3c4c;font:700 13px/1 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;text-align:center;">
+                            [[ISSUE_ID]]
+                          </span>
+                        </td>
+                      </tr>
+                    </table>
                   </td>
                 </tr>
               </table>
@@ -63,15 +61,16 @@ a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important
           [[DIVINGSKILL]]
           [[ENVIRONMENT]]
 
-          <!-- 푸터: 구독 정보/링크. 링크 대비(AA) 색상 지정 -->
+          <!-- 푸터 -->
           <tr>
-            <td style="padding:16px 20px;background:#f7fbff;color:#6a7b8c;font:12px/1.6 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
+            <td style="padding:18px 20px;background:#f6fbff;color:#5c6b78;font:12px/1.6 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
               You’re receiving this because you subscribed to <strong>Diving Weekly</strong>.<br>
               <a href="[[UNSUBSCRIBE_URL]]" target="_blank" style="color:#1e63cc;">Unsubscribe</a>
               &nbsp;·&nbsp;
               <a href="[[PREF_URL]]" target="_blank" style="color:#1e63cc;">Update preferences</a>
             </td>
           </tr>
+
         </table>
       </td>
     </tr>
