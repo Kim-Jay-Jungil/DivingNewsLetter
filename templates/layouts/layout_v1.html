@@ -1,46 +1,79 @@
-<!-- template:section_travel_hero_v1; updated: 2025-08-22 -->
-<tr>
-  <td style="padding:0 0 28px;background:#0f3c4c;">
-    <!-- 히어로 컨테이너: 둥근 모서리로 이미지 클리핑 -->
-    <table role="presentation" width="100%" style="border-radius:18px;overflow:hidden;background:#000000;">
-      <tr>
-        <td>
-          <!-- 큰 히어로 이미지: 절대 URL, width 속성 + 인라인 스타일 병행 -->
-          <a href="[[URL]][[SEP]][[UTM]]&amp;utm_content=[[UTM_CONTENT]]" target="_blank" rel="noopener">
-            <img src="[[IMAGE]]" alt="[[TITLE]]" width="600"
-                 style="display:block;width:100%;max-width:600px;height:auto;border:0;">
-          </a>
-        </td>
-      </tr>
-    </table>
+<!-- template:layout_v2; updated: 2025-08-22 -->
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[[SUBJECT]]</title>
+<style>
+@media (max-width:600px){
+  .container{width:100%!important}
+  .stack{display:block!important;width:100%!important}
+  .center{text-align:center!important}
+  .capsule{border-radius:24px!important}
+}
+table,td{border-collapse:collapse}
+img{border:0;display:block}
+a{text-decoration:none;color:inherit}
+a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important}
+</style>
+</head>
+<body style="margin:0;padding:0;background:#e9f2f7;">
+  <div style="display:none;max-height:0;overflow:hidden;opacity:0;">
+    [[PREHEADER]]&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  </div>
 
-    <!-- 오버랩 카드: 이미지 위로 겹치도록 음수 마진. 미지원 클라이언트에서는 자연스럽게 '이미지 아래'로 폴백 -->
-    <div style="margin:-64px 20px 0 20px;background:#ffffff;border-radius:16px;padding:16px 16px 14px;">
-      <!-- 카테고리 라벨 -->
-      <span style="display:inline-block;padding:7px 10px;border-radius:9999px;background:#e7faf6;color:#0e7f74;
-                   font:700 11px/1 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;letter-spacing:.02em;text-transform:uppercase;">
-        [[SECTION_LABEL]]
-      </span>
+  <table role="presentation" width="100%" style="background:#e9f2f7;">
+    <tr>
+      <td align="center" style="padding:24px 12px;">
+        <table class="container" role="presentation" width="600" style="width:600px;max-width:100%;background:#ffffff;border-radius:20px;overflow:hidden;">
+          
+          <!-- 헤더 : 캡슐형 상단 배너 + 이슈 버블 -->
+          <tr>
+            <td style="padding:0 20px 16px;background:#0f3c4c;">
+              <table role="presentation" width="100%">
+                <tr>
+                  <td style="padding-top:16px;">
+                    <table role="presentation" width="100%" class="capsule" style="width:100%;background:#15a2b8;border-radius:18px;">
+                      <tr>
+                        <td class="stack" valign="middle" style="padding:14px 16px;">
+                          <a href="[[HOME_URL]]" target="_blank" rel="noopener">
+                            <img src="[[LOGO_URL]]" alt="Diving Weekly 로고" width="124" style="display:block;width:124px;height:auto;">
+                          </a>
+                        </td>
+                        <td class="stack center" valign="middle" style="padding:10px 12px;">
+                          <span style="display:inline-block;min-width:84px;padding:10px 14px;border-radius:9999px;background:#ffffff;color:#0f3c4c;font:700 13px/1 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;text-align:center;">
+                            [[ISSUE_ID]]
+                          </span>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
 
-      <!-- 타이틀/요약 -->
-      <h2 style="margin:10px 0 8px;font:800 26px/1.25 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#0f1f2e;">
-        [[TITLE]]
-      </h2>
-      <p style="margin:0 0 14px;font:14px/1.7 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#374b5c;">
-        [[SUMMARY]]
-      </p>
+          <!-- 섹션 슬롯: 실제 카드/보더/타이포는 섹션 파셜이 전담 -->
+          [[TRAVEL]]
+          [[FUNFACT]]
+          [[EQUIPMENT]]
+          [[DIVINGSKILL]]
+          [[ENVIRONMENT]]
 
-      <!-- CTA: 링크 패턴 고정(UTM 포함) -->
-      <a href="[[URL]][[SEP]][[UTM]]&amp;utm_content=[[UTM_CONTENT]]" target="_blank" rel="noopener"
-         style="display:inline-block;padding:10px 14px;border-radius:12px;background:#1e63cc;color:#ffffff;
-                font:700 13px/1 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
-        여행 정보 보기 →
-      </a>
+          <!-- 푸터 -->
+          <tr>
+            <td style="padding:18px 20px;background:#f6fbff;color:#5c6b78;font:12px/1.6 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
+              You’re receiving this because you subscribed to <strong>Diving Weekly</strong>.<br>
+              <a href="[[UNSUBSCRIBE_URL]]" target="_blank" style="color:#1e63cc;">Unsubscribe</a>
+              &nbsp;·&nbsp;
+              <a href="[[PREF_URL]]" target="_blank" style="color:#1e63cc;">Update preferences</a>
+            </td>
+          </tr>
 
-      <!-- 메타 -->
-      <div style="margin-top:10px;font:12px/1.6 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#64758a;">
-        AUTHOR: [[AUTHOR]] · [[DATE]]
-      </div>
-    </div>
-  </td>
-</tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
